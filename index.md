@@ -6,7 +6,7 @@ layout: default
 
 I am a senior CS undergraduate student at [**KAIST**](https://www.kaist.ac.kr).
 <br>
-I am currently working as a RTOS Developer at [**RTST**](https://www.rtst.co.kr).
+I am currently working as a RTOS Researcher at [**RTST**](https://www.rtst.co.kr).
 
 ## Education
 
