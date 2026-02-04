@@ -2,26 +2,21 @@
 
 source "https://rubygems.org"
 
-gemspec
-# commenting below to remove dependency with "github-pages" 
-# gem "github-pages", group: :jekyll_plugins
+# Core Jekyll build
+gem "jekyll", "~> 4.2.0"
 
+# Plugins used by this site (see _config.yml)
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
+gem "jekyll-feed", "~> 0.17.0"
+gem "jekyll-gist", "~> 1.5"
+gem "jemoji"
 
-# https://github.com/jekyll/jekyll/issues/8523#issuecomment-751409319
-# When running locally, we run into the following error —
-# `require': cannot load such file -- webrick (LoadError)
-# adding this avoids it
+# Markdown parser used by GitHub Pages/Jekyll defaults
+gem "kramdown-parser-gfm"
+
+# Required for local serve on recent Ruby versions
 gem "webrick"
 
-# adding the following gems to support removal of "github-pages" dependency
-gem "jemoji"
-gem "kramdown-parser-gfm"
-gem "jekyll-remote-theme"
-gem "jekyll-feed", "~> 0.17.0"
-
-gem "jekyll-gist", "~> 1.5"
+# Dependency used by Jekyll live reload
 gem "em-websocket", "~> 0.5.3"
-gem "jekyll", "~> 4.2.0"
-gem "csv", "~> 3.2"
