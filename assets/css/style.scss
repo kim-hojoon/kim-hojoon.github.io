@@ -3,16 +3,51 @@
 
 @import "jekyll-theme-minimalistic";
 
+:root[data-theme="light"] {
+  @include colors;
+  @include light-colors;
+  @include code-highlights;
+  @include highlights-light;
+}
+
+:root[data-theme="dark"] {
+  @include colors;
+  @include dark-colors;
+  @include code-highlights;
+  @include highlights-dark;
+}
+
+:root[data-theme="auto"] {
+  @include colors;
+  @include dark-colors;
+  @include code-highlights;
+  @include highlights-dark;
+}
+
+@media screen and (prefers-color-scheme: light) {
+  :root[data-theme="auto"] {
+    @include light-colors;
+    @include highlights-light;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    @include dark-colors;
+    @include highlights-dark;
+  }
+}
+
+@media print {
+  :root[data-theme="dark"],
+  :root[data-theme="auto"] {
+    @include light-colors;
+    @include highlights-light;
+  }
+}
+
 body {
   transition: background-color 0.2s, color 0.2s;
-}
-
-[data-theme="light"] {
-  @import "colors-light";
-}
-
-[data-theme="dark"] {
-  @import "colors-dark";
 }
 
 .overlay {

@@ -13,6 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ site.title }}</title>
     {% seo %}
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = stored ? stored : 'auto';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'auto');
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="preload" href="{{site.logo | relative_url}}" as="image">
     {% include head-custom.html %}
