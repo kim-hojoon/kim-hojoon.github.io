@@ -26,7 +26,7 @@ I am currently working as a RTOS Researcher at [**RTST**](https://www.rtst.co.kr
 * Visiting Researcher @ [**PARSA**](https://parsa.epfl.ch) (Parallel Systems Architecture Lab)
   * Advisor: Prof. [Babak Falsafi](https://parsa.epfl.ch/~falsafi/)
 
-* Undergraduate Researcher @ [**CASYS**](https:///casyslab.kaist.ac.kr/) (Computer Architecture and Systems Lab)
+* Undergraduate Researcher @ [**CASYS**](https://casyslab.kaist.ac.kr/) (Computer Architecture and Systems Lab)
   * Advisor: Prof. [Jongse Park](https://jongse-park.github.io/)
 
 ## Industry Experience
