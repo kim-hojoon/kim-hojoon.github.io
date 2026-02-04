@@ -2,24 +2,24 @@
   const desktopNodes = Array.from(document.querySelectorAll('[data-display="desktop"]'));
   const mobileNodes = Array.from(document.querySelectorAll('[data-display="mobile"]'));
 
+  if (!desktopNodes.length && !mobileNodes.length) {
+    return;
+  }
+
   const applyVisibility = (isMobile) => {
     desktopNodes.forEach((node) => {
       if (isMobile) {
         node.setAttribute('aria-hidden', 'true');
-        node.setAttribute('hidden', '');
       } else {
-        node.removeAttribute('hidden');
         node.setAttribute('aria-hidden', 'false');
       }
     });
 
     mobileNodes.forEach((node) => {
       if (isMobile) {
-        node.removeAttribute('hidden');
         node.setAttribute('aria-hidden', 'false');
       } else {
         node.setAttribute('aria-hidden', 'true');
-        node.setAttribute('hidden', '');
       }
     });
   };
