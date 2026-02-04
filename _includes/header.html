@@ -1,6 +1,11 @@
 {% if site.logo %}
-    <div class="header-title">
+    <div class="header-title" data-display="desktop">
         {% include header-title.html %}
+    </div>
+    <div class="header-title-mobile" data-display="mobile">
+        <section>
+        {% include header-title.html %}
+        </section>
     </div>
 {% else %}
     {% include header-title.html %}

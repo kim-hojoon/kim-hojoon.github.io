@@ -1,13 +1,8 @@
-<div class="link-wrapper">
+<div class="link-wrapper" data-display="desktop">
   {% if site.platforms %}
   <ul class="link horizontal-icons">
     {%- for platform in site.platforms %}
-    <li>
-      <a href="{{ platform.link }}" rel="me">
-        {{ platform.icon }}
-        <span class="platform-name">{{ platform.name }}</span>
-      </a>
-    </li>
+    <a href="{{ platform.link }}">{{ platform.icon }}</a>
     {%- endfor %}
   </ul>
   {% endif %}
