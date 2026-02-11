@@ -149,25 +149,68 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 8px
+    ),
+    linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto;
+  overflow: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(0deg,
+      rgba(233, 69, 96, 0.06) 0%,
+      transparent 20%,
+      transparent 35%,
+      rgba(108, 92, 231, 0.04) 35%,
+      rgba(108, 92, 231, 0.04) 36%,
+      transparent 36%,
+      transparent 60%,
+      rgba(9, 132, 227, 0.04) 60%,
+      rgba(9, 132, 227, 0.04) 61%,
+      transparent 61%,
+      transparent 85%,
+      rgba(0, 184, 148, 0.04) 85%,
+      rgba(0, 184, 148, 0.04) 86%,
+      transparent 86%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,10 +220,11 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* ===== Sidebar Profile ===== */
@@ -639,10 +683,10 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
+    background-image: none;
   }
 
   .section {
