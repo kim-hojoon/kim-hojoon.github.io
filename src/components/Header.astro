@@ -1,0 +1,62 @@
+---
+const socialLinks = [
+  { name: 'Email', icon: 'fa-regular fa-envelope', href: 'mailto:hojoonkim.02@gmail.com', title: 'Email' },
+  { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', href: 'https://www.linkedin.com/in/kim-hojoon', title: 'LinkedIn' },
+  { name: 'GitHub', icon: 'fa-brands fa-github', href: 'https://github.com/kim-hojoon', title: 'GitHub' },
+  { name: 'CV', icon: 'ai ai-cv', href: '/cv.pdf', title: 'CV' },
+];
+
+const navigation = [
+  { name: 'About', href: '#about' },
+  { name: 'Education', href: '#education' },
+  { name: 'Research Interests', href: '#interests' },
+  { name: 'Research', href: '#research' },
+  { name: 'Industry', href: '#industry' },
+  { name: 'Publications', href: '#publications' },
+];
+---
+
+<header class="site-header">
+  <div class="header-content">
+    <div class="header-profile">
+      <a href="/">
+        <img
+          class="profile-photo"
+          src="/img/Hojoon-Birthday.jpg"
+          alt="Hojoon Kim"
+          loading="eager"
+        />
+      </a>
+      <div class="header-info">
+        <h1 class="profile-name">Hojoon Kim</h1>
+        <p class="profile-desc">RTOS Researcher @ RTST<br />CS Undergraduate @ KAIST</p>
+        <ul class="social-links">
+          {socialLinks.map((link) => (
+            <li>
+              <a href={link.href} title={link.title} aria-label={link.title}>
+                <i class={link.icon}></i>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="sticky-nav">
+  <div class="sticky-nav-content">
+    <nav class="site-nav">
+      {navigation.map((item) => (
+        <a href={item.href}>{item.name}</a>
+      ))}
+    </nav>
+    <div class="theme-toggle-wrapper">
+      <span class="theme-toggle-label">Dark</span>
+      <label class="theme-toggle">
+        <input type="checkbox" class="theme-checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</div>
