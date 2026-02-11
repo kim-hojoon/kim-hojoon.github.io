@@ -149,17 +149,24 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: linear-gradient(180deg,
+    #e94560 0%,
+    #e94560 35%,
+    #1a1a2e 35%,
+    #16213e 100%
+  );
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -177,15 +184,19 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
 /* ===== Sidebar Profile ===== */
 .profile {
   text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 24px 16px;
+  margin-top: 40px;
+  backdrop-filter: blur(4px);
 }
 
 .profile-photo {
@@ -639,7 +650,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
