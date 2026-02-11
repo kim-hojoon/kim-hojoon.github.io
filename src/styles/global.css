@@ -149,17 +149,19 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #111118 0%, #18181f 100%);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -177,9 +179,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -361,13 +362,16 @@ img {
 }
 
 .section-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-size: 1.4rem;
+  font-weight: 800;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
   gap: 10px;
+  background: linear-gradient(135deg, var(--accent), #6c5ce7, #0984e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .section-title::before {
@@ -375,7 +379,7 @@ img {
   display: inline-block;
   width: 4px;
   height: 22px;
-  background: var(--accent);
+  background: linear-gradient(180deg, var(--accent), #6c5ce7);
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -393,12 +397,13 @@ img {
 
 /* ===== Experience Cards ===== */
 .experience-item {
-  padding: 20px 24px;
-  margin-bottom: 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  padding: 16px 20px 16px 24px;
+  margin-bottom: 8px;
+  background: transparent;
+  border: none;
+  border-left: 3px solid var(--border-light);
+  border-radius: 0;
+  box-shadow: none;
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
@@ -417,8 +422,8 @@ img {
 }
 
 .experience-item:hover {
-  border-color: var(--accent-border);
-  box-shadow: var(--shadow-md);
+  border-left-color: var(--accent);
+  background: var(--accent-light);
   transform: translateX(4px);
 }
 
@@ -639,7 +644,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
