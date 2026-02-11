@@ -149,25 +149,55 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: #0a0a1a;
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto;
+  overflow: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(0, 255, 128, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 40%, rgba(0, 128, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 70%, rgba(128, 0, 255, 0.06) 0%, transparent 50%);
+  animation: auroraShift 8s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes auroraShift {
+  0% { transform: translateX(-10%) translateY(0); }
+  33% { transform: translateX(5%) translateY(-5%); }
+  66% { transform: translateX(-5%) translateY(5%); }
+  100% { transform: translateX(10%) translateY(0); }
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,9 +207,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -208,9 +237,19 @@ img {
 .profile-name {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
   margin-bottom: 10px;
   letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #00ff80, #0080ff, #8000ff, #00ff80);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerName 6s linear infinite;
+}
+
+@keyframes shimmerName {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
 .profile-desc {
@@ -639,7 +678,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
