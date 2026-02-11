@@ -147,18 +147,31 @@ img {
 }
 
 /* ===== Page Layout ===== */
+body {
+  background: #f0f0f5;
+}
+
+[data-theme="dark"] body {
+  background: #0a0e14;
+}
+
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
+  padding: 28px;
+  gap: 28px;
+  align-items: flex-start;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: sticky;
+  top: 28px;
   width: 300px;
-  height: 100vh;
+  height: calc(100vh - 56px);
+  flex-shrink: 0;
   background: var(--bg-sidebar);
   padding: 40px 28px 28px;
   display: flex;
@@ -168,6 +181,28 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  border-radius: var(--radius-lg);
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(45deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.04) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.04) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,10 +212,12 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
-  min-height: 100vh;
+  max-width: 780px;
+  min-height: calc(100vh - 56px);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 /* ===== Sidebar Profile ===== */
@@ -584,6 +621,8 @@ img {
 @media (max-width: 768px) {
   .page-wrapper {
     flex-direction: column;
+    padding: 0;
+    gap: 0;
   }
 
   .sidebar {
@@ -639,10 +678,11 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .section {
