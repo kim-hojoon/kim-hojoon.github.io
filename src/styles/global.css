@@ -149,25 +149,67 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: #0a0a0f;
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto;
+  overflow: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ff2d95;
+  box-shadow: 0 0 8px #ff2d95, 0 0 20px #ff2d95, 0 0 40px rgba(255, 45, 149, 0.4);
+  animation: neonFlicker 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #00d4ff;
+  box-shadow: 0 0 8px #00d4ff, 0 0 20px #00d4ff, 0 0 40px rgba(0, 212, 255, 0.4);
+  animation: neonFlicker 3s ease-in-out infinite 1.5s;
+  z-index: 2;
+}
+
+@keyframes neonFlicker {
+  0%, 100% { opacity: 1; }
+  5% { opacity: 0.8; }
+  10% { opacity: 1; }
+  50% { opacity: 0.95; }
+  55% { opacity: 0.7; }
+  60% { opacity: 1; }
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,9 +219,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -288,9 +329,10 @@ img {
 
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-  border-left-color: var(--sidebar-accent);
+  color: #ff2d95;
+  background: rgba(255, 45, 149, 0.06);
+  border-left-color: #ff2d95;
+  text-shadow: 0 0 8px rgba(255, 45, 149, 0.5);
 }
 
 /* ===== Theme Toggle ===== */
@@ -639,7 +681,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
