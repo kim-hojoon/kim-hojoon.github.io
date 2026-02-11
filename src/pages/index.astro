@@ -1,115 +1,111 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Sidebar from '../components/Sidebar.astro';
-import MobileHeader from '../components/MobileHeader.astro';
-import MobileFooter from '../components/MobileFooter.astro';
+import ProfileCard from '../components/ProfileCard.astro';
 ---
 
 <BaseLayout>
-  <div class="page-wrapper">
-    <Sidebar />
+  <ProfileCard />
 
-    <MobileHeader />
+  <main class="main-content">
 
-    <main class="main-content">
+    <!-- About Me -->
+    <section class="section" id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="section-content">
+        <p>
+          I am a senior CS undergraduate student at
+          <a href="https://kaist.ac.kr"><strong>KAIST</strong></a>.
+        </p>
+        <p>
+          I am currently working as a RTOS Researcher at
+          <a href="https://rtst.co.kr"><strong>RTST</strong></a>.
+        </p>
+      </div>
+    </section>
 
-      <!-- About Me -->
-      <section class="section" id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="section-content">
-          <p>
-            I am a senior CS undergraduate student at
-            <a href="https://kaist.ac.kr"><strong>KAIST</strong></a>.
-          </p>
-          <p>
-            I am currently working as a RTOS Researcher at
-            <a href="https://rtst.co.kr"><strong>RTST</strong></a>.
-          </p>
+    <!-- Education -->
+    <section class="section" id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="experience-item">
+        <div class="experience-title">
+          <a href="https://kaist.ac.kr">KAIST</a>
         </div>
-      </section>
-
-      <!-- Education -->
-      <section class="section" id="education">
-        <h2 class="section-title">Education</h2>
-        <div class="experience-item">
-          <div class="experience-title">
-            <a href="https://kaist.ac.kr">KAIST</a>
-          </div>
-          <div class="experience-subtitle">2021 &ndash; Present</div>
-          <div class="experience-detail">B.S. in Computer Science and Electrical Engineering</div>
+        <div class="experience-subtitle">2021 &ndash; Present</div>
+        <div class="experience-detail">B.S. in Computer Science and Electrical Engineering</div>
+      </div>
+      <div class="experience-item">
+        <div class="experience-title">
+          <a href="https://epfl.ch/en/">EPFL</a>
         </div>
-        <div class="experience-item">
-          <div class="experience-title">
-            <a href="https://epfl.ch/en/">EPFL</a>
-          </div>
-          <div class="experience-subtitle">Feb. 2024 &ndash; Jul. 2024</div>
-          <div class="experience-detail">Exchange Student in Computer Science</div>
+        <div class="experience-subtitle">Feb. 2024 &ndash; Jul. 2024</div>
+        <div class="experience-detail">Exchange Student in Computer Science</div>
+      </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section class="section" id="interests">
+      <h2 class="section-title">Research Interests</h2>
+      <ul class="tag-list">
+        <li class="tag">System Architecture</li>
+        <li class="tag">Operating Systems</li>
+        <li class="tag">Computer Vision</li>
+      </ul>
+    </section>
+
+    <!-- Research Experience -->
+    <section class="section" id="research">
+      <h2 class="section-title">Research Experience</h2>
+      <div class="experience-item">
+        <div class="experience-title">
+          Visiting Researcher @ <a href="https://parsa.epfl.ch">PARSA</a>
         </div>
-      </section>
-
-      <!-- Research Interests -->
-      <section class="section" id="interests">
-        <h2 class="section-title">Research Interests</h2>
-        <ul class="tag-list">
-          <li class="tag">System Architecture</li>
-          <li class="tag">Operating Systems</li>
-          <li class="tag">Computer Vision</li>
-        </ul>
-      </section>
-
-      <!-- Research Experience -->
-      <section class="section" id="research">
-        <h2 class="section-title">Research Experience</h2>
-        <div class="experience-item">
-          <div class="experience-title">
-            Visiting Researcher @ <a href="https://parsa.epfl.ch">PARSA</a>
-          </div>
-          <div class="experience-subtitle">Parallel Systems Architecture Lab</div>
-          <div class="experience-detail">
-            Advisor: Prof. <a href="https://parsa.epfl.ch/~falsafi/">Babak Falsafi</a>
-          </div>
+        <div class="experience-subtitle">Parallel Systems Architecture Lab</div>
+        <div class="experience-detail">
+          Advisor: Prof. <a href="https://parsa.epfl.ch/~falsafi/">Babak Falsafi</a>
         </div>
-        <div class="experience-item">
-          <div class="experience-title">
-            Undergraduate Researcher @ <a href="https://casyslab.kaist.ac.kr/">CASYS</a>
-          </div>
-          <div class="experience-subtitle">Computer Architecture and Systems Lab</div>
-          <div class="experience-detail">
-            Advisor: Prof. <a href="https://jongse-park.github.io/">Jongse Park</a>
-          </div>
+      </div>
+      <div class="experience-item">
+        <div class="experience-title">
+          Undergraduate Researcher @ <a href="https://casyslab.kaist.ac.kr/">CASYS</a>
         </div>
-      </section>
-
-      <!-- Industry Experience -->
-      <section class="section" id="industry">
-        <h2 class="section-title">Industry Experience</h2>
-        <div class="experience-item">
-          <div class="experience-title">
-            RTOS Researcher @ <a href="https:/rtst.co.kr">RTST</a>
-          </div>
-          <div class="experience-subtitle">Real-Time Operating System Development</div>
+        <div class="experience-subtitle">Computer Architecture and Systems Lab</div>
+        <div class="experience-detail">
+          Advisor: Prof. <a href="https://jongse-park.github.io/">Jongse Park</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Publications -->
-      <section class="section" id="publications">
-        <h2 class="section-title">Publications</h2>
-
-        <div class="pub-year-group">
-          <div class="pub-entry">
-            <div class="pub-title">
-              Déjà Vu: Efficient Video-Language Query Engine with Learning-based Inter-Frame Computation Reuse
-            </div>
-            <div class="pub-authors">
-              Jinwoo Hwang, Daeun Kim, Sangyeop Lee, Yoonsung Kim, Guseul Heo, <strong>Hojoon Kim</strong>, Yunseok Jeong, Tadiwos Meaza, Eunhyeok Park, Jeongseob Ahn, Jongse Park
-            </div>
-            <div class="pub-venue">VLDB, 2025 <a href="https://arxiv.org/abs/2506.14107" class="pub-link">[paper]</a></div>
-          </div>
+    <!-- Industry Experience -->
+    <section class="section" id="industry">
+      <h2 class="section-title">Industry Experience</h2>
+      <div class="experience-item">
+        <div class="experience-title">
+          RTOS Researcher @ <a href="https:/rtst.co.kr">RTST</a>
         </div>
-      </section>
+        <div class="experience-subtitle">Real-Time Operating System Development</div>
+      </div>
+    </section>
 
-    </main>
+    <!-- Publications -->
+    <section class="section" id="publications">
+      <h2 class="section-title">Publications</h2>
 
-    <MobileFooter />
-  </div>
+      <div class="pub-year-group">
+        <div class="pub-entry">
+          <div class="pub-title">
+            Déjà Vu: Efficient Video-Language Query Engine with Learning-based Inter-Frame Computation Reuse
+          </div>
+          <div class="pub-authors">
+            Jinwoo Hwang, Daeun Kim, Sangyeop Lee, Yoonsung Kim, Guseul Heo, <strong>Hojoon Kim</strong>, Yunseok Jeong, Tadiwos Meaza, Eunhyeok Park, Jeongseob Ahn, Jongse Park
+          </div>
+          <div class="pub-venue">VLDB, 2025 <a href="https://arxiv.org/abs/2506.14107" class="pub-link">[paper]</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <small>Built with Astro</small>
+  </footer>
 </BaseLayout>
