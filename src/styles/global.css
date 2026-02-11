@@ -146,13 +146,58 @@ img {
   height: auto;
 }
 
+/* ===== Drawer Toggle Button ===== */
+.drawer-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+}
+
+.drawer-toggle:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===== Drawer Overlay ===== */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  justify-content: center;
   min-height: 100vh;
 }
 
-/* ===== Sidebar ===== */
+/* ===== Sidebar (Drawer) ===== */
 .sidebar {
   position: fixed;
   top: 0;
@@ -167,7 +212,13 @@ img {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  z-index: 10;
+  z-index: 60;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.open {
+  transform: translateX(0);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,7 +228,6 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
   max-width: 800px;
   min-height: 100vh;
@@ -582,6 +632,10 @@ img {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+  .drawer-toggle {
+    display: none;
+  }
+
   .page-wrapper {
     flex-direction: column;
   }
@@ -639,7 +693,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;

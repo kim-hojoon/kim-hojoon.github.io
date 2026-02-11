@@ -6,9 +6,15 @@ import MobileFooter from '../components/MobileFooter.astro';
 ---
 
 <BaseLayout>
-  <div class="page-wrapper">
-    <Sidebar />
+  <button class="drawer-toggle" id="drawer-toggle" aria-label="Toggle profile panel">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <Sidebar />
+
+  <div class="page-wrapper">
     <MobileHeader />
 
     <main class="main-content">
@@ -112,4 +118,30 @@ import MobileFooter from '../components/MobileFooter.astro';
 
     <MobileFooter />
   </div>
+
+  <script>
+    const toggle = document.getElementById('drawer-toggle');
+    const overlay = document.getElementById('drawer-overlay');
+    const sidebar = document.querySelector('.sidebar');
+
+    function openDrawer() {
+      sidebar?.classList.add('open');
+      overlay?.classList.add('open');
+    }
+
+    function closeDrawer() {
+      sidebar?.classList.remove('open');
+      overlay?.classList.remove('open');
+    }
+
+    toggle?.addEventListener('click', () => {
+      if (sidebar?.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+
+    overlay?.addEventListener('click', closeDrawer);
+  </script>
 </BaseLayout>
