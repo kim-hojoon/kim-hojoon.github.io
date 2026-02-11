@@ -149,17 +149,19 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: #1e1e2e;
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -168,6 +170,21 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  border-right: 1px solid #313244;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+.sidebar::before {
+  content: '~/hojoon $';
+  position: absolute;
+  top: 16px;
+  left: 28px;
+  font-size: 0.7rem;
+  color: #a6e3a1;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,10 +194,10 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
+  counter-reset: line-num;
 }
 
 /* ===== Sidebar Profile ===== */
@@ -208,9 +225,10 @@ img {
 .profile-name {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #a6e3a1;
   margin-bottom: 10px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 .profile-desc {
@@ -361,22 +379,21 @@ img {
 }
 
 .section-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6c7086;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 .section-title::before {
-  content: '';
-  display: inline-block;
-  width: 4px;
-  height: 22px;
-  background: var(--accent);
-  border-radius: 2px;
+  content: '//';
+  color: #6c7086;
+  font-weight: 400;
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
@@ -639,7 +656,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
