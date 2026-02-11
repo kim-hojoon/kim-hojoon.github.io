@@ -149,17 +149,29 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background:
+    radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 150px 60px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 60px 200px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 200px 150px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 40px 350px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 250px 280px, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px 1px at 120px 450px, rgba(255,255,255,0.45), transparent),
+    radial-gradient(1.5px 1.5px at 180px 500px, rgba(255,255,255,0.3), transparent),
+    var(--bg-sidebar);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -177,9 +189,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -639,7 +650,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
