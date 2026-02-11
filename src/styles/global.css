@@ -151,7 +151,7 @@ img {
 /* ===== Site Header ===== */
 .site-header {
   background: var(--bg-header);
-  padding: 32px 24px 28px;
+  padding: 24px 24px 20px;
 }
 
 .header-content {
@@ -185,10 +185,11 @@ img {
 .header-info {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .header-info .profile-name {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 6px;
@@ -199,13 +200,13 @@ img {
   font-size: 0.9rem;
   color: var(--header-text-muted);
   line-height: 1.6;
-  margin-bottom: 4px;
+  margin-bottom: 0;
 }
 
 .header-info .social-links {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 14px;
   list-style: none;
 }
 
