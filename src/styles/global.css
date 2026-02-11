@@ -149,22 +149,25 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 300px;
+  width: 280px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow-y: auto;
+  overflow-x: visible;
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
@@ -177,9 +180,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -189,19 +191,23 @@ img {
 }
 
 .profile-photo {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   border-radius: var(--radius-full);
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 4px solid var(--bg-primary);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  left: 50%;
+  transform: translateX(-15%);
+  z-index: 20;
 }
 
 .profile-photo:hover {
   border-color: var(--sidebar-accent);
-  transform: scale(1.05);
+  transform: translateX(-15%) scale(1.05);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -604,6 +610,9 @@ img {
     width: 100px;
     height: 100px;
     margin-bottom: 16px;
+    left: auto;
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   .mobile-header .profile-name {
@@ -639,7 +648,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
