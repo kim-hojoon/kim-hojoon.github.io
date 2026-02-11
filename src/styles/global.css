@@ -149,25 +149,47 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: #1a2e1a;
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto;
+  overflow: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 200px 150px at 30% 25%, transparent 60%, rgba(46, 125, 50, 0.06) 60%, transparent 61%),
+    radial-gradient(ellipse 250px 180px at 30% 25%, transparent 60%, rgba(46, 125, 50, 0.05) 60%, transparent 61%),
+    radial-gradient(ellipse 300px 220px at 30% 25%, transparent 60%, rgba(46, 125, 50, 0.04) 60%, transparent 61%),
+    radial-gradient(ellipse 180px 130px at 70% 70%, transparent 60%, rgba(46, 125, 50, 0.06) 60%, transparent 61%),
+    radial-gradient(ellipse 230px 170px at 70% 70%, transparent 60%, rgba(46, 125, 50, 0.05) 60%, transparent 61%),
+    radial-gradient(ellipse 280px 210px at 70% 70%, transparent 60%, rgba(46, 125, 50, 0.04) 60%, transparent 61%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,9 +199,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -208,7 +229,7 @@ img {
 .profile-name {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #81c784;
   margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
@@ -639,7 +660,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
