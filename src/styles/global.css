@@ -149,18 +149,21 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 100vh;
+  align-items: flex-start;
 }
 
-/* ===== Sidebar ===== */
-.sidebar {
-  position: fixed;
+/* ===== Profile Sidebar (Left) ===== */
+.profile-sidebar {
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 300px;
+  width: 240px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
-  padding: 40px 28px 28px;
+  padding: 40px 24px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -170,16 +173,88 @@ img {
   z-index: 10;
 }
 
-.sidebar::-webkit-scrollbar {
+.profile-sidebar::-webkit-scrollbar {
   display: none;
+}
+
+/* Original sidebar hidden in this layout */
+.sidebar {
+  display: none;
+}
+
+/* ===== Right Nav ===== */
+.right-nav {
+  position: sticky;
+  top: 48px;
+  width: 180px;
+  flex-shrink: 0;
+  padding: 0 16px;
+  height: fit-content;
+}
+
+.right-nav-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.right-nav ul {
+  list-style: none;
+}
+
+.right-nav li + li {
+  margin-top: 2px;
+}
+
+.right-nav a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all var(--transition);
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
+
+.right-nav a:hover {
+  color: var(--text-primary);
+  background: var(--accent-light);
+  border-left-color: var(--accent);
+}
+
+.right-nav .theme-toggle-wrapper {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  justify-content: flex-start;
+}
+
+.right-nav .theme-toggle-label {
+  color: var(--text-muted);
+}
+
+.right-nav .theme-toggle .slider {
+  background: var(--border);
+}
+
+.right-nav .theme-toggle input:checked + .slider {
+  background: var(--accent);
+}
+
+.right-nav .theme-toggle .slider::before {
+  background: var(--bg-primary);
 }
 
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
-  padding: 48px 56px 64px;
-  max-width: 800px;
+  padding: 48px 40px 64px;
+  max-width: 720px;
   min-height: 100vh;
 }
 
@@ -584,6 +659,15 @@ img {
 @media (max-width: 768px) {
   .page-wrapper {
     flex-direction: column;
+    max-width: 100%;
+  }
+
+  .profile-sidebar {
+    display: none;
+  }
+
+  .right-nav {
+    display: none;
   }
 
   .sidebar {
@@ -639,7 +723,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;

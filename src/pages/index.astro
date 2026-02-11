@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Sidebar from '../components/Sidebar.astro';
+import ProfileSidebar from '../components/ProfileSidebar.astro';
+import RightNav from '../components/RightNav.astro';
 import MobileHeader from '../components/MobileHeader.astro';
 import MobileFooter from '../components/MobileFooter.astro';
 ---
 
 <BaseLayout>
   <div class="page-wrapper">
-    <Sidebar />
+    <ProfileSidebar />
 
     <MobileHeader />
 
@@ -109,6 +110,8 @@ import MobileFooter from '../components/MobileFooter.astro';
       </section>
 
     </main>
+
+    <RightNav />
 
     <MobileFooter />
   </div>

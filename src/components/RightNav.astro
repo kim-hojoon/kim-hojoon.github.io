@@ -1,0 +1,31 @@
+---
+const navigation = [
+  { name: 'About Me', href: '#about' },
+  { name: 'Education', href: '#education' },
+  { name: 'Research Interests', href: '#interests' },
+  { name: 'Research Experience', href: '#research' },
+  { name: 'Industry Experience', href: '#industry' },
+  { name: 'Publications', href: '#publications' },
+];
+---
+
+<aside class="right-nav">
+  <nav>
+    <p class="right-nav-title">Contents</p>
+    <ul>
+      {navigation.map((item) => (
+        <li>
+          <a href={item.href}>{item.name}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <div class="theme-toggle-wrapper">
+    <span class="theme-toggle-label">Dark Mode</span>
+    <label class="theme-toggle">
+      <input type="checkbox" class="theme-checkbox" />
+      <span class="slider"></span>
+    </label>
+  </div>
+</aside>
