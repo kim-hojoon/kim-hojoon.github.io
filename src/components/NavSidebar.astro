@@ -1,0 +1,34 @@
+---
+const navigation = [
+  { name: 'About Me', href: '#about' },
+  { name: 'Education', href: '#education' },
+  { name: 'Research Interests', href: '#interests' },
+  { name: 'Research Experience', href: '#research' },
+  { name: 'Industry Experience', href: '#industry' },
+  { name: 'Publications', href: '#publications' },
+];
+---
+
+<aside class="nav-sidebar">
+  <nav class="sidebar-nav">
+    <p class="sidebar-nav-title">Contents</p>
+    <ul>
+      {navigation.map((item) => (
+        <li>
+          <a href={item.href}>{item.name}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="theme-toggle-wrapper">
+      <span class="theme-toggle-label">Dark Mode</span>
+      <label class="theme-toggle">
+        <input type="checkbox" class="theme-checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <small>Built with Astro</small>
+  </div>
+</aside>

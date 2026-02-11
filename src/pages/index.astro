@@ -1,13 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Sidebar from '../components/Sidebar.astro';
+import ProfileHero from '../components/ProfileHero.astro';
+import NavSidebar from '../components/NavSidebar.astro';
 import MobileHeader from '../components/MobileHeader.astro';
 import MobileFooter from '../components/MobileFooter.astro';
 ---
 
 <BaseLayout>
+  <ProfileHero />
+
   <div class="page-wrapper">
-    <Sidebar />
+    <NavSidebar />
 
     <MobileHeader />
 
