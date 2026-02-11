@@ -147,18 +147,28 @@ img {
 }
 
 /* ===== Page Layout ===== */
+body {
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
+  padding: 24px;
+  gap: 24px;
+  align-items: flex-start;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: sticky;
+  top: 24px;
   width: 300px;
-  height: 100vh;
+  height: calc(100vh - 48px);
+  flex-shrink: 0;
   background: var(--bg-sidebar);
   padding: 40px 28px 28px;
   display: flex;
@@ -168,6 +178,8 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,10 +189,13 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
-  min-height: 100vh;
+  max-width: 780px;
+  min-height: calc(100vh - 48px);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ===== Sidebar Profile ===== */
@@ -584,6 +599,8 @@ img {
 @media (max-width: 768px) {
   .page-wrapper {
     flex-direction: column;
+    padding: 0;
+    gap: 0;
   }
 
   .sidebar {
@@ -639,10 +656,12 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
   }
 
   .section {
