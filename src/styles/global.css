@@ -149,17 +149,34 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(139, 90, 43, 0.04) 0px,
+      transparent 3px,
+      transparent 8px,
+      rgba(139, 90, 43, 0.03) 8px,
+      rgba(139, 90, 43, 0.03) 10px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.02) 0px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(180deg, #3e2723 0%, #4e342e 40%, #3e2723 100%);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -168,6 +185,7 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  border-right: 2px solid #5d4037;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,9 +195,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -208,7 +225,7 @@ img {
 .profile-name {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffcc80;
   margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
@@ -639,7 +656,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
