@@ -149,16 +149,18 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
   padding: 40px 28px 28px;
   display: flex;
@@ -168,6 +170,10 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,9 +183,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -193,16 +198,22 @@ img {
   height: 120px;
   border-radius: var(--radius-full);
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(233, 69, 96, 0.6);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 15px rgba(233, 69, 96, 0.4),
+    0 0 30px rgba(233, 69, 96, 0.2),
+    0 0 60px rgba(233, 69, 96, 0.1);
 }
 
 .profile-photo:hover {
   border-color: var(--sidebar-accent);
   transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 0 20px rgba(233, 69, 96, 0.6),
+    0 0 40px rgba(233, 69, 96, 0.3),
+    0 0 80px rgba(233, 69, 96, 0.15);
 }
 
 .profile-name {
@@ -639,7 +650,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
