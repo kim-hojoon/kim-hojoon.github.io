@@ -1,0 +1,16 @@
+{
+    "name": "Hojoon Kim",
+    "short_name": "Hojoon Kim",
+    "lang": "en-us",
+    "icons": [
+        {
+            "src": "/assets/icon/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff"
+}

@@ -1,0 +1,18 @@
+# Astro
+node_modules/
+dist/
+.astro/
+
+# OMC
+.omc/
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+
+# Environment
+.env
+.env.*
