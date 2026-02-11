@@ -1,0 +1,33 @@
+---
+const socialLinks = [
+  { name: 'Email', icon: 'fa-regular fa-envelope', href: 'mailto:hojoonkim.02@gmail.com', title: 'Email' },
+  { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', href: 'https://www.linkedin.com/in/kim-hojoon', title: 'LinkedIn' },
+  { name: 'GitHub', icon: 'fa-brands fa-github', href: 'https://github.com/kim-hojoon', title: 'GitHub' },
+  { name: 'CV', icon: 'ai ai-cv', href: '/cv.pdf', title: 'CV' },
+];
+---
+
+<aside class="slim-sidebar">
+  <div class="slim-sidebar-top">
+    <a href="/">
+      <img
+        class="slim-photo"
+        src="/img/Hojoon-Birthday.jpg"
+        alt="Hojoon Kim"
+        loading="eager"
+      />
+    </a>
+    <ul class="slim-links">
+      {socialLinks.map((link) => (
+        <li>
+          <a href={link.href} title={link.title} aria-label={link.title}>
+            <i class={link.icon}></i>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div class="slim-sidebar-bottom">
+    <small>Built with Astro</small>
+  </div>
+</aside>

@@ -1,17 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Sidebar from '../components/Sidebar.astro';
+import SlimSidebar from '../components/SlimSidebar.astro';
 import MobileHeader from '../components/MobileHeader.astro';
 import MobileFooter from '../components/MobileFooter.astro';
 ---
 
 <BaseLayout>
   <div class="page-wrapper">
-    <Sidebar />
+    <SlimSidebar />
 
     <MobileHeader />
 
     <main class="main-content">
+
+      <!-- Hero/Name area -->
+      <div class="content-hero">
+        <h1 class="hero-name">Hojoon Kim</h1>
+        <p class="hero-desc">RTOS Researcher @ RTST &middot; CS Undergraduate @ KAIST</p>
+      </div>
 
       <!-- About Me -->
       <section class="section" id="about">
