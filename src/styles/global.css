@@ -149,18 +149,20 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 300px;
+  width: 320px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
-  padding: 40px 28px 28px;
+  padding: 40px 36px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -168,6 +170,31 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  clip-path: polygon(
+    0 0, calc(100% - 12px) 0,
+    100% 20px, calc(100% - 12px) 40px,
+    100% 60px, calc(100% - 12px) 80px,
+    100% 100px, calc(100% - 12px) 120px,
+    100% 140px, calc(100% - 12px) 160px,
+    100% 180px, calc(100% - 12px) 200px,
+    100% 220px, calc(100% - 12px) 240px,
+    100% 260px, calc(100% - 12px) 280px,
+    100% 300px, calc(100% - 12px) 320px,
+    100% 340px, calc(100% - 12px) 360px,
+    100% 380px, calc(100% - 12px) 400px,
+    100% 420px, calc(100% - 12px) 440px,
+    100% 460px, calc(100% - 12px) 480px,
+    100% 500px, calc(100% - 12px) 520px,
+    100% 540px, calc(100% - 12px) 560px,
+    100% 580px, calc(100% - 12px) 600px,
+    100% 620px, calc(100% - 12px) 640px,
+    100% 660px, calc(100% - 12px) 680px,
+    100% 700px, calc(100% - 12px) 720px,
+    100% 740px, calc(100% - 12px) 760px,
+    100% 780px, calc(100% - 12px) 800px,
+    100% 100%,
+    0 100%
+  );
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,9 +204,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -365,19 +391,13 @@ img {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--accent), #6c5ce7, transparent) 1;
 }
 
 .section-title::before {
-  content: '';
-  display: inline-block;
-  width: 4px;
-  height: 22px;
-  background: var(--accent);
-  border-radius: 2px;
-  flex-shrink: 0;
+  display: none;
 }
 
 .section-content p {
@@ -639,7 +659,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
