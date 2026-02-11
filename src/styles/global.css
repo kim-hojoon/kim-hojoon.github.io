@@ -149,18 +149,20 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1120px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 300px;
+  width: 320px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
-  padding: 40px 28px 28px;
+  padding: 40px 40px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -168,6 +170,7 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  clip-path: ellipse(90% 50% at 30% 50%);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,10 +180,10 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
+  margin-left: -20px;
 }
 
 /* ===== Sidebar Profile ===== */
@@ -639,10 +642,10 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
+    margin-left: 0;
   }
 
   .section {
