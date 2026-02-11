@@ -149,18 +149,20 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1060px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
-  padding: 40px 28px 28px;
+  padding: 48px 28px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -168,6 +170,18 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar::before {
+  content: '///';
+  position: absolute;
+  top: 20px;
+  left: 28px;
+  font-size: 0.7rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: 4px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,9 +191,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 760px;
   min-height: 100vh;
 }
 
@@ -206,11 +219,12 @@ img {
 }
 
 .profile-name {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 10px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 .profile-desc {
@@ -639,7 +653,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
