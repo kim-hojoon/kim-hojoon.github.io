@@ -149,16 +149,18 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 300px;
+  width: 280px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
   padding: 40px 28px 28px;
   display: flex;
@@ -177,7 +179,6 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
   max-width: 800px;
   min-height: 100vh;
@@ -580,10 +581,111 @@ img {
   display: none;
 }
 
+/* ===== Medium Screen: Sidebar becomes top bar ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .page-wrapper {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 32px;
+    overflow: visible;
+  }
+
+  .sidebar .profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+  }
+
+  .sidebar .profile-photo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0;
+  }
+
+  .sidebar .profile-name {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+
+  .sidebar .profile-desc {
+    font-size: 0.78rem;
+  }
+
+  .sidebar .social-links {
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .sidebar .social-links a {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .sidebar .sidebar-nav {
+    margin-top: 0;
+    flex: 1;
+  }
+
+  .sidebar .sidebar-nav-title {
+    display: none;
+  }
+
+  .sidebar .sidebar-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .sidebar .sidebar-nav li + li {
+    margin-top: 0;
+  }
+
+  .sidebar .sidebar-nav a {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .sidebar .sidebar-nav a:hover,
+  .sidebar .sidebar-nav a.active {
+    border-left: none;
+    border-bottom-color: var(--sidebar-accent);
+  }
+
+  .sidebar .theme-toggle-wrapper {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .sidebar .sidebar-footer {
+    display: none;
+  }
+
+  .main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 40px 48px;
+  }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .page-wrapper {
     flex-direction: column;
+    max-width: 100%;
   }
 
   .sidebar {
@@ -639,7 +741,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
