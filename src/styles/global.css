@@ -149,17 +149,23 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background:
+    linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 51%, transparent 52%),
+    linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+  background-size: 60px 60px, 60px 60px, 100% 100%;
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -177,9 +183,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -188,15 +193,25 @@ img {
   text-align: center;
 }
 
+
 .profile-photo {
   width: 120px;
   height: 120px;
   border-radius: var(--radius-full);
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.15);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 6px rgba(233, 69, 96, 0.15),
+    0 0 0 8px rgba(233, 69, 96, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(233,69,96,0.15), 0 0 0 8px rgba(233,69,96,0.3), 0 4px 20px rgba(0,0,0,0.3); }
+  50% { box-shadow: 0 0 0 10px rgba(233,69,96,0.05), 0 0 0 12px rgba(233,69,96,0.15), 0 4px 20px rgba(0,0,0,0.3); }
 }
 
 .profile-photo:hover {
@@ -639,7 +654,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
