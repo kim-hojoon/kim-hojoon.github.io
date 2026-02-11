@@ -149,17 +149,19 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: radial-gradient(ellipse at 50% 30%, #2a2a4e 0%, #1a1a2e 40%, #0d0d1a 100%);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -170,6 +172,37 @@ img {
   z-index: 10;
 }
 
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(233, 69, 96, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
+}
+
 .sidebar::-webkit-scrollbar {
   display: none;
 }
@@ -177,9 +210,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -193,16 +225,16 @@ img {
   height: 120px;
   border-radius: var(--radius-full);
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.25);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(233, 69, 96, 0.12);
 }
 
 .profile-photo:hover {
   border-color: var(--sidebar-accent);
   transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), 0 0 60px rgba(233, 69, 96, 0.25);
 }
 
 .profile-name {
@@ -639,7 +671,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
