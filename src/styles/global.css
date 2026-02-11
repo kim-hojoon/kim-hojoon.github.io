@@ -149,17 +149,20 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1060px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 300px;
+  width: 280px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -177,9 +180,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -193,29 +195,29 @@ img {
   height: 120px;
   border-radius: var(--radius-full);
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid var(--border);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .profile-photo:hover {
-  border-color: var(--sidebar-accent);
+  border-color: var(--accent);
   transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .profile-name {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
 
 .profile-desc {
   font-size: 0.85rem;
-  color: var(--sidebar-text-muted);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -235,9 +237,9 @@ img {
   width: 38px;
   height: 38px;
   border-radius: var(--radius-full);
-  color: var(--sidebar-text-muted);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
   transition: all var(--transition);
   font-size: 1rem;
   text-decoration: none;
@@ -245,10 +247,10 @@ img {
 
 .social-links a:hover {
   color: #ffffff;
-  background: var(--sidebar-accent);
-  border-color: var(--sidebar-accent);
+  background: var(--accent);
+  border-color: var(--accent);
   transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
 }
 
 /* ===== Navigation ===== */
@@ -261,7 +263,7 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--sidebar-text-muted);
+  color: var(--text-muted);
   margin-bottom: 12px;
   padding-left: 14px;
 }
@@ -278,7 +280,7 @@ img {
   display: block;
   padding: 9px 14px;
   border-radius: var(--radius-sm);
-  color: var(--sidebar-text-muted);
+  color: var(--text-muted);
   font-size: 0.88rem;
   font-weight: 500;
   transition: all var(--transition);
@@ -288,9 +290,9 @@ img {
 
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-  border-left-color: var(--sidebar-accent);
+  color: var(--text-primary);
+  background: var(--accent-light);
+  border-left-color: var(--accent);
 }
 
 /* ===== Theme Toggle ===== */
@@ -301,12 +303,12 @@ img {
   gap: 10px;
   margin-top: 28px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
 }
 
 .theme-toggle-label {
   font-size: 0.78rem;
-  color: var(--sidebar-text-muted);
+  color: var(--text-muted);
   font-weight: 500;
 }
 
@@ -325,7 +327,7 @@ img {
 .theme-toggle .slider {
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--border);
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: background-color var(--transition);
@@ -344,7 +346,7 @@ img {
 }
 
 .theme-toggle input:checked + .slider {
-  background-color: var(--sidebar-accent);
+  background-color: var(--accent);
 }
 
 .theme-toggle input:checked + .slider::before {
@@ -567,7 +569,7 @@ img {
 
 .sidebar-footer small {
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--text-muted);
 }
 
 /* ===== Mobile Header (hidden on desktop) ===== */
@@ -584,6 +586,7 @@ img {
 @media (max-width: 768px) {
   .page-wrapper {
     flex-direction: column;
+    max-width: 100%;
   }
 
   .sidebar {
@@ -639,7 +642,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
