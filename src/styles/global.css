@@ -149,17 +149,19 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #1e3a5f 0%, #0d1117 100%);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -170,6 +172,25 @@ img {
   z-index: 10;
 }
 
+.sidebar::after {
+  content: 'HK';
+  position: absolute;
+  bottom: 40px;
+  right: -10px;
+  font-size: 10rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
+}
+
 .sidebar::-webkit-scrollbar {
   display: none;
 }
@@ -177,9 +198,8 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
 }
 
@@ -411,9 +431,10 @@ img {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: var(--accent);
-  opacity: 0;
-  transition: opacity var(--transition);
+  background: linear-gradient(180deg, var(--accent), #6c5ce7);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
 }
 
 .experience-item:hover {
@@ -423,7 +444,7 @@ img {
 }
 
 .experience-item:hover::before {
-  opacity: 1;
+  transform: scaleY(1);
 }
 
 .experience-title {
@@ -639,7 +660,6 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
