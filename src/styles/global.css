@@ -149,16 +149,18 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
   padding: 40px 28px 28px;
   display: flex;
@@ -168,6 +170,10 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  box-shadow:
+    inset -8px 0 16px rgba(0, 0, 0, 0.3),
+    inset 0 8px 16px rgba(0, 0, 0, 0.15),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,10 +183,13 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
+  background-image:
+    linear-gradient(var(--border-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* ===== Sidebar Profile ===== */
@@ -639,10 +648,10 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
+    background-image: none;
   }
 
   .section {
