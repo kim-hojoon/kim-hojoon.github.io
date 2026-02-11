@@ -149,17 +149,24 @@ img {
 /* ===== Page Layout ===== */
 .page-wrapper {
   display: flex;
+  max-width: 1080px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 300px;
   height: 100vh;
-  background: var(--bg-sidebar);
+  flex-shrink: 0;
+  background:
+    linear-gradient(180deg,
+      #1a1a2e 0%, #1a1a2e 25%,
+      #1e1e34 25%, #1e1e34 50%,
+      #16213e 50%, #16213e 75%,
+      #121a30 75%, #121a30 100%);
   padding: 40px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -168,6 +175,23 @@ img {
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 10;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 15px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.15));
+  pointer-events: none;
+}
+
+.sidebar > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,10 +201,10 @@ img {
 /* ===== Main Content ===== */
 .main-content {
   flex: 1;
-  margin-left: 300px;
   padding: 48px 56px 64px;
-  max-width: 800px;
+  max-width: 780px;
   min-height: 100vh;
+  box-shadow: inset 4px 0 8px rgba(0, 0, 0, 0.04);
 }
 
 /* ===== Sidebar Profile ===== */
@@ -639,10 +663,10 @@ img {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 32px 20px 40px;
     max-width: 100%;
     width: 100%;
+    box-shadow: none;
   }
 
   .section {
