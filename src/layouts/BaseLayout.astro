@@ -25,9 +25,7 @@ import '../styles/global.css';
       (function () {
         try {
           var stored = localStorage.getItem('theme');
-          if (stored === 'dark' || stored === 'light') {
-            document.documentElement.setAttribute('data-theme', stored);
-          }
+          document.documentElement.setAttribute('data-theme', stored || 'light');
         } catch (e) {}
       })();
     </script>
