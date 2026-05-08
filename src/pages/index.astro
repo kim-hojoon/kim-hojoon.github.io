@@ -23,7 +23,9 @@ import MobileFooter from '../components/MobileFooter.astro';
           </p>
           <p>
             I am currently working as a RTOS Researcher at
-            <a href="https://rtst.co.kr"><strong>RTst</strong></a>.
+            <a href="https://rtst.co.kr"><strong>RTst</strong></a>
+            and a Research Intern at
+            <a href="https://casyslab.kaist.ac.kr/"><strong>CASYS Lab</strong></a>.
           </p>
         </div>
       </section>
@@ -35,8 +37,13 @@ import MobileFooter from '../components/MobileFooter.astro';
           <div class="experience-title">
             <a href="https://kaist.ac.kr">KAIST</a>
           </div>
-          <div class="experience-subtitle">2021 &ndash; Present</div>
-          <div class="experience-detail">B.S. in Computer Science and Electrical Engineering</div>
+          <div class="experience-subtitle">Mar. 2021 &ndash; Present</div>
+          <div class="experience-detail">
+            B.S. in Computer Science, Minor in Electrical Engineering
+          </div>
+          <ul class="experience-bullets">
+            <li><strong>GPA:</strong> 4.14 / 4.30</li>
+          </ul>
         </div>
         <div class="experience-item">
           <div class="experience-title">
@@ -51,6 +58,7 @@ import MobileFooter from '../components/MobileFooter.astro';
       <section class="section" id="interests">
         <h2 class="section-title">Research Interests</h2>
         <ul class="tag-list">
+          <li class="tag">System for AI</li>
           <li class="tag">System Architecture</li>
           <li class="tag">Operating Systems</li>
           <li class="tag">Computer Vision</li>
@@ -60,23 +68,47 @@ import MobileFooter from '../components/MobileFooter.astro';
       <!-- Research Experience -->
       <section class="section" id="research">
         <h2 class="section-title">Research Experience</h2>
+
+        <div class="experience-item">
+          <div class="experience-title">
+            Research Intern @ <a href="https://casyslab.kaist.ac.kr/">CASYS</a>
+          </div>
+          <div class="experience-subtitle">Sep. 2025 &ndash; Present</div>
+          <div class="experience-detail">
+            Advisor: Prof. <a href="https://jongse-park.github.io/">Jongse Park</a>
+          </div>
+          <ul class="experience-bullets">
+            <li>Exploring HW/SW acceleration opportunities for <strong>3DGRUT</strong> on GPUs.</li>
+          </ul>
+        </div>
+
         <div class="experience-item">
           <div class="experience-title">
             Visiting Researcher @ <a href="https://parsa.epfl.ch">PARSA</a>
           </div>
-          <div class="experience-subtitle">Parallel Systems Architecture Lab</div>
+          <div class="experience-subtitle">Mar. 2024 &ndash; Jun. 2024</div>
           <div class="experience-detail">
             Advisor: Prof. <a href="https://parsa.epfl.ch/~falsafi/">Babak Falsafi</a>
           </div>
+          <ul class="experience-bullets">
+            <li>
+              Proposed a lazy translation-invalidation scheme for the
+              <a href="https://midgard.epfl.ch/"><strong>Midgard</strong></a> virtual memory system.
+            </li>
+          </ul>
         </div>
+
         <div class="experience-item">
           <div class="experience-title">
             Undergraduate Researcher @ <a href="https://casyslab.kaist.ac.kr/">CASYS</a>
           </div>
-          <div class="experience-subtitle">Computer Architecture and Systems Lab</div>
+          <div class="experience-subtitle">Jun. 2023 &ndash; Jan. 2024</div>
           <div class="experience-detail">
             Advisor: Prof. <a href="https://jongse-park.github.io/">Jongse Park</a>
           </div>
+          <ul class="experience-bullets">
+            <li>Explored <strong>Vision Transformer</strong> acceleration for video understanding via inter-frame computation reuse.</li>
+          </ul>
         </div>
       </section>
 
@@ -85,9 +117,16 @@ import MobileFooter from '../components/MobileFooter.astro';
         <h2 class="section-title">Industry Experience</h2>
         <div class="experience-item">
           <div class="experience-title">
-            RTOS Researcher @ <a href="https://rtst.co.kr">RTst</a>
+            RTOS Researcher @ <a href="https://www.rtst.co.kr/">RTst</a>
           </div>
-          <div class="experience-subtitle">Real-Time Operating System Development</div>
+          <div class="experience-subtitle">Oct. 2024 &ndash; Present</div>
+          <ul class="experience-bullets">
+            <li>
+              Contributing to
+              <a href="https://www.rtst.co.kr/product/rtworks.php"><strong>RTWORKS</strong></a>
+              by implementing kernel features, device drivers, and board support packages for a Real-Time Operating System.
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -103,7 +142,7 @@ import MobileFooter from '../components/MobileFooter.astro';
             <div class="pub-authors">
               Jinwoo Hwang, Daeun Kim, Sangyeop Lee, Yoonsung Kim, Guseul Heo, <strong>Hojoon Kim</strong>, Yunseok Jeong, Tadiwos Meaza, Eunhyeok Park, Jeongseob Ahn, Jongse Park
             </div>
-            <div class="pub-venue">VLDB, 2025 <a href="https://arxiv.org/abs/2506.14107" class="pub-link">[paper]</a></div>
+            <div class="pub-venue">VLDB 2025 <a href="https://arxiv.org/abs/2506.14107" class="pub-link">[paper]</a></div>
           </div>
         </div>
       </section>
