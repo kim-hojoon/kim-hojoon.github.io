@@ -27,6 +27,9 @@ import MobileFooter from '../components/MobileFooter.astro';
             and a Research Intern at
             <a href="https://casyslab.kaist.ac.kr/"><strong>CASYS Lab</strong></a>.
           </p>
+          <p>
+            More details on my work are in my <a href="/cv.pdf"><strong>CV</strong></a>.
+          </p>
         </div>
       </section>
 
@@ -58,10 +61,12 @@ import MobileFooter from '../components/MobileFooter.astro';
       <section class="section" id="interests">
         <h2 class="section-title">Research Interests</h2>
         <ul class="tag-list">
-          <li class="tag">System for AI</li>
+          <li class="tag">Systems for AI</li>
           <li class="tag">System Architecture</li>
           <li class="tag">Operating Systems</li>
+          <li class="tag">Compilers</li>
           <li class="tag">Computer Vision</li>
+          <li class="tag">World Models</li>
         </ul>
       </section>
 
@@ -71,14 +76,28 @@ import MobileFooter from '../components/MobileFooter.astro';
 
         <div class="experience-item">
           <div class="experience-title">
-            Research Intern @ <a href="https://casyslab.kaist.ac.kr/">CASYS</a>
+            Research Intern (World Models) @ <a href="https://casyslab.kaist.ac.kr/">CASYS</a>
           </div>
-          <div class="experience-subtitle">Sep. 2025 &ndash; Present</div>
+          <div class="experience-subtitle">Jun. 2026 &ndash; Present</div>
           <div class="experience-detail">
             Advisor: Prof. <a href="https://jongse-park.github.io/">Jongse Park</a>
           </div>
           <ul class="experience-bullets">
-            <li>Exploring HW/SW acceleration opportunities for <strong>3DGRUT</strong> on GPUs.</li>
+            <li>Leading a project on <strong>World Models</strong> as an emerging systems workload, from literature survey to GPU profiling.</li>
+            <li>Profiling NVIDIA <strong>Cosmos 3</strong> and <strong>Interactive World Models</strong> on GPUs to identify latency and memory bottlenecks.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-title">
+            Research Intern (3D Gaussian Rendering) @ <a href="https://casyslab.kaist.ac.kr/">CASYS</a>
+          </div>
+          <div class="experience-subtitle">Sep. 2025 &ndash; May 2026</div>
+          <div class="experience-detail">
+            Advisor: Prof. <a href="https://jongse-park.github.io/">Jongse Park</a>
+          </div>
+          <ul class="experience-bullets">
+            <li>Explored HW/SW acceleration opportunities for <strong>3DGRUT</strong> on GPUs, analyzing its execution on GPU simulators.</li>
           </ul>
         </div>
 
@@ -91,10 +110,7 @@ import MobileFooter from '../components/MobileFooter.astro';
             Advisor: Prof. <a href="https://parsa.epfl.ch/~falsafi/">Babak Falsafi</a>
           </div>
           <ul class="experience-bullets">
-            <li>
-              Proposed a lazy translation-invalidation scheme for the
-              <a href="https://midgard.epfl.ch/"><strong>Midgard</strong></a> virtual memory system.
-            </li>
+            <li>Proposed a lazy translation-invalidation scheme for the <a href="https://midgard.epfl.ch/"><strong>Midgard</strong></a> virtual memory system.</li>
           </ul>
         </div>
 
@@ -121,11 +137,8 @@ import MobileFooter from '../components/MobileFooter.astro';
           </div>
           <div class="experience-subtitle">Oct. 2024 &ndash; Present</div>
           <ul class="experience-bullets">
-            <li>
-              Contributing to
-              <a href="https://www.rtst.co.kr/product/rtworks.php"><strong>RTWORKS</strong></a>
-              by implementing kernel features, device drivers, and board support packages for a Real-Time Operating System.
-            </li>
+            <li>Contributing to <a href="https://www.rtst.co.kr/product/rtworks.php"><strong>RTWORKS</strong></a>, a real-time operating system, across kernel features, device drivers, board support packages, and the build environment.</li>
+            <li>Established the company's <strong>OpenVPN</strong> infrastructure, administering it through a Slack bot.</li>
           </ul>
         </div>
       </section>
